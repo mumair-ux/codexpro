@@ -1,0 +1,5 @@
+Handle,Title,Body (HTML),Tags,Published,Option1 Name,Option1 Value,Variant SKU,Variant Inventory Tracker,Variant Inventory Qty,Variant Price,Variant Compare-at Price,Variant Barcode,Image Src,SEO Title,SEO Description,Status
+space-adventure-kids,Space Adventure Kids Bedsheet,"<p>Soft, breathable single bedsheet.</p>",kids-single,TRUE,Title,Default Title,US-KID-001,shopify,20,1199,2400,100000001,https://example.com/space.jpg,Space Adventure Kids Bedsheet,,active
+space-adventure-kids,,,,,,,,,,,,,https://example.com/space-detail.jpg,,,
+space-adventure-copy,Space Adventure Kids Bedsheet,,kids-single,FALSE,Title,Default Title,US-KID-002,shopify,0,0,2400,100000002,https://example.com/copy.jpg,,,draft
+fleece-cloud,CloudSoft Fleece Blanket,"<p>Soft double fleece blanket.</p>",fleece-blankets,TRUE,Title,Default Title,US-KID-001,,3,3499,3499,100000003,https://example.com/blanket.jpg,,,active

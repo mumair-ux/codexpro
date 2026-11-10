@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CodexPro is a free, privacy-first Shopify product and inventory CSV auditor that checks duplicate titles and SKUs, inventory, pricing, SEO, and product visibility locally in your browser.">
+  <meta name="theme-color" content="#142e35">
+  <title>CodexPro · Shopify Catalog Auditor</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="./" aria-label="CodexPro home"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span>Codex<span class="accent">Pro</span></span></a>
+      <span class="top-label">OPEN SOURCE · FREE TO USE</span>
+      <a class="nav-link" href="https://github.com/mumair-ux/codexpro" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow"><span class="live-dot"></span> Privacy-first Shopify utilities</div>
+        <h1>A cleaner Shopify catalog starts <em>here.</em></h1>
+        <p class="hero-subtitle">Find duplicate products, stock and pricing mistakes, missing descriptions, and SEO opportunities — before they affect your store.</p>
+        <div class="trust-row"><span>✓ Works offline</span><span>✓ No API access needed</span><span>✓ No changes to Shopify</span></div>
+      </div>
+    </section>
+    <div class="container app-content">
+      <section class="upload-panel" aria-labelledby="uploadTitle">
+        <div class="panel-heading"><div><span class="section-kicker">01 / IMPORT</span><h2 id="uploadTitle">Audit your Shopify products</h2><p>Export a product CSV (Shopify Admin → Products → Export) or an inventory-location CSV (Products → Inventory). Both formats are supported.</p></div><span class="file-tag">.CSV</span></div>
+        <div class="dropzone" id="dropzone">
+          <div class="upload-glyph" aria-hidden="true">↑</div>
+          <div class="drop-title">Drop your Shopify CSV here</div>
+          <p>or choose a file from your computer</p>
+          <label class="primary-btn" for="fileInput">Choose CSV file</label>
+          <input id="fileInput" type="file" accept=".csv,text/csv" aria-label="Choose Shopify product CSV">
+          <small>Max 25 MB · Product or inventory export · Your file stays in this browser</small>
+        </div>
+        <div class="under-upload"><span id="status" class="status" role="status" aria-live="polite">No file selected yet.</span><button type="button" class="text-btn" id="demoBtn">Try with sample data →</button></div>
+      </section>
+      <section class="feature-panel" aria-label="Checks included">
+        <div class="feature"><span class="feature-icon">≡</span><div><h3>Duplicate detection</h3><p>Repeated product titles, SKUs, barcodes and shared image URLs.</p></div></div>
+        <div class="feature"><span class="feature-icon">▤</span><div><h3>Price & inventory</h3><p>Invalid prices, compare-at issues, zero and low stock, disabled tracking.</p></div></div>
+        <div class="feature"><span class="feature-icon">⌕</span><div><h3>SEO & visibility</h3><p>Missing descriptions, SEO fallbacks, long titles and draft visibility.</p></div></div>
+      </section>
+      <section id="results" class="results" aria-labelledby="resultsTitle" hidden>
+        <div class="results-top"><div><span class="section-kicker">02 / REPORT</span><h2 id="resultsTitle">Catalog audit results</h2><p><span id="csvRows">0</span> CSV data rows analyzed · <span id="reportMode">Product catalog CSV</span>. Findings are suggestions, not automatic store edits.</p></div><div class="download-actions"><button type="button" id="downloadCsv" class="primary-btn">Export findings CSV</button><button type="button" id="downloadJson" class="secondary-btn">Download JSON</button></div></div>
+        <div class="stat-grid">
+          <div class="stat"><span id="productLabel">Products</span><strong id="productCount">0</strong></div>
+          <div class="stat"><span id="variantLabel">Variants (estimated)</span><strong id="variantCount">0</strong></div>
+          <div class="stat stat-critical"><span>Critical</span><strong id="criticalCount">0</strong></div>
+          <div class="stat stat-warning"><span>Warnings</span><strong id="warningCount">0</strong></div>
+          <div class="stat"><span>Info</span><strong id="infoCount">0</strong></div>
+        </div>
+        <p id="inventoryNote" class="notice" hidden>Inventory quantity was not included in this product CSV. For accurate multi-location inventory checks, Shopify requires a separate inventory export.</p>
+        <p id="seoNote" class="notice" hidden>SEO columns were not included in your CSV, so the audit skips custom SEO-title and SEO-description checks.</p>
+        <div class="findings-toolbar"><div><h3>Findings</h3><p id="shownCount" aria-live="polite"></p></div><div class="filters"><label><span class="sr-only">Search findings</span><input id="search" type="search" placeholder="Search products or issues…"></label><label><span class="sr-only">Severity</span><select id="severityFilter"><option value="all">All severities</option><option value="critical">Critical</option><option value="warning">Warning</option><option value="info">Info</option></select></label></div></div>
+        <div class="table-scroll"><table><thead><tr><th>Priority</th><th>Product / handle</th><th>Check</th><th>Issue</th><th>Recommended action</th><th>CSV line</th></tr></thead><tbody id="issueRows"></tbody></table></div>
+        <div id="empty" class="empty" hidden>No findings match these filters.</div>
+      </section>
+      <section class="how-it-works"><div><span class="section-kicker">SAFE BY DESIGN</span><h2>Useful checks, without store access.</h2></div><p>CodexPro reads your exported CSV only in your browser. It does not upload customer or product data, connect to Shopify, or update inventory. Some checks are heuristic: shared titles or images may be intentional, and a product CSV cannot verify collection membership, visual image similarity or live storefront styling. Inventory CSVs are validated separately for location, variant identity and stock fields.</p></section>
+    </div>
+  </main>
+  <footer><div class="container footer-row"><span>© 2026 CodexPro · MIT licensed</span><span>Built for independent Shopify sellers and developers.</span></div></footer>
+  <script src="src/audit.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>
